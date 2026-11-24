@@ -2,15 +2,22 @@
 
 A sticky note that sits beside your chat in Claude Code, so your to-do list is always in view. It has a soft neumorphic look and light and dark modes.
 
+<p>
+  <img src="docs/preview-light.svg" alt="The sticky note in light mode: a header card reading 1 of 3 done, two raised to-do cards and one finished card pressed in" width="360">
+  <img src="docs/preview-dark.svg" alt="The same sticky note in dark mode" width="360">
+</p>
+
 ## Why
 
 When I work with Claude I lose track of what I still have to do. Switching to a notes app breaks focus, and typing the list into the chat would cost tokens every turn. This mod keeps the list in a pane next to the conversation. The pane runs entirely on your machine and never talks to the model, so using it costs **zero tokens**.
 
 ## Features
 
-- To-do list in a pane beside the chat: add, check off, edit and delete items
+- To-do list in a pane beside the chat: add, check off, edit, reorder and delete items
+- Undo for a deleted item or a "Clear done"
 - Neumorphic style: raised cards for open items, pressed-in cards for finished ones
-- Light and dark mode, switched with one button and remembered
+- Auto, light and dark themes. Auto follows your system's light/dark setting
+- One shared list, or a separate list for each project folder
 - Saved between sessions. Close Claude, come back tomorrow, and your list is still there
 - Compact "glance" view when the pane is minimized to a widget in the desktop app
 - Falls back to a plain text list in the terminal, where SVG can't be drawn
@@ -43,9 +50,12 @@ In the Claude desktop app, where `/plugin` does not run, click **+** next to the
 | Add a to-do | Type in **Add a to-do…** and press Enter |
 | Mark done / undo | ✓ / ↺ |
 | Edit | ✎, change the text, press Enter (saving it empty deletes the item) |
+| Move up / down | ↑ / ↓ |
 | Delete | ✕ |
 | Remove all finished items | **Clear done** |
-| Switch theme | **☾ Dark** / **☀ Light** |
+| Bring back what you just deleted | **↶ Undo** |
+| Switch theme | **◐ Auto** → **☀ Light** → **☾ Dark** |
+| Shared list or one per project | **🌐 All folders** / **📁 This folder** |
 | Reopen a closed note | type `/sticky-note` |
 
 ## How it works
@@ -78,8 +88,9 @@ To try a local copy without installing it, start Claude Code with `claude --plug
 - Long items are cut off with `…` in the card; the full text shows when you edit it.
 - Card width is estimated from the pane's width in characters, so it can look slightly off at unusual font sizes.
 - The app's own text field and buttons keep their flat style. Only the cards are neumorphic.
-- The theme toggle is manual. It doesn't follow the app's light or dark setting automatically.
-- The text box is the app's own control, and a mod can't change its colours. Its text follows the app's theme, so in light mode on a dark app it stays light.
+- Auto follows your system's light/dark setting, because mods can't read the app's theme. If the app is set differently from the system, pick Light or Dark by hand.
+- The text box is the app's own control, and a mod can't change its colours. Its text follows the app's theme, so with Light on a dark app it stays light. Auto avoids this.
+- Undo remembers only the last delete or "Clear done".
 
 ## License
 
