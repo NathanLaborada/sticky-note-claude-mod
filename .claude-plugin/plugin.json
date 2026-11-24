@@ -1,0 +1,8 @@
+{
+  "name": "sticky-note",
+  "version": "0.1.0",
+  "description": "A neumorphic sticky note beside the chat for your to-do list, with light and dark mode. Uses no tokens.",
+  "author": { "name": "NathanLaborada" },
+  "license": "MIT",
+  "types": "./types/index.d.ts"
+}

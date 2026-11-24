@@ -1,0 +1,6 @@
+{
+  "name": "sticky-note-claude-mod",
+  "description": "A neumorphic sticky-note to-do pane for Claude Code that uses no tokens.",
+  "owner": { "name": "NathanLaborada" },
+  "plugins": [{ "name": "sticky-note", "source": "./" }]
+}
